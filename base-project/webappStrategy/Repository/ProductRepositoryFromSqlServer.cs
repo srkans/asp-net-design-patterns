@@ -33,6 +33,7 @@ namespace webappStrategy.Repository
 
         public async Task<Product> Save(Product product)
         {
+            product.Id = Guid.NewGuid().ToString(); //mongo db kendi guid id'sini otomatik uretiyor
             await _context.Products.AddAsync(product);
 
             await _context.SaveChangesAsync();

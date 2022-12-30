@@ -2,7 +2,7 @@
 
 namespace webappStrategy.Repository
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         Task<Product> GetById(string id);
 
