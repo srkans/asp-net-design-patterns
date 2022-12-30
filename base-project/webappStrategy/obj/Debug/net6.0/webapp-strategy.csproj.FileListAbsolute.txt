@@ -1,0 +1,8 @@
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.csproj.AssemblyReference.cache
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.AssemblyInfoInputs.cache
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.AssemblyInfo.cs
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.csproj.CoreCompileInputs.cache
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.MvcApplicationPartsAssemblyInfo.cache
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.RazorAssemblyInfo.cache
+E:\projects\asp-net-design-patterns\base-project\webapp-strategy\obj\Debug\net6.0\webapp-strategy.RazorAssemblyInfo.cs
