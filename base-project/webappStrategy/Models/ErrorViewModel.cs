@@ -1,4 +1,6 @@
-namespace BaseProject.Models
+using System;
+
+namespace webappStrategy.Models
 {
     public class ErrorViewModel
     {

@@ -1,4 +1,4 @@
-using BaseProject.Models;
+using webappStrategy.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;

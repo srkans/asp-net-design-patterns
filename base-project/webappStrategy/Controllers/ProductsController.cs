@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BaseProject.Models;
+using webappStrategy.Models;
 using webappStrategy.Models;
 using webappStrategy.Repository;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace webappStrategy.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         //private readonly AppIdentityDbContext _context;  //bu yapı dependency injection yontemiyle
