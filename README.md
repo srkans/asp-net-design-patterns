@@ -5,5 +5,12 @@ Design Patterns for ASP.NET
 	EntityFrameworkCore
 	EntityFrameworkCore.SqlServer
 	EntityFrameworkCore.Identity
+	EntityFrameworkCore.Tools
+	
+2.Strategy Pattern
+	MongoDb.Driver
+	Connection Settings and Repositories
+	ProductController
+	
 	
 	
