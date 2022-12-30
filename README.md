@@ -1,5 +1,6 @@
 # asp-net-design-patterns
-Design Patterns for ASP.NET
+Design Patterns for ASP.NET Core
+.NET 6 
 
 1.base-project
 	EntityFrameworkCore
