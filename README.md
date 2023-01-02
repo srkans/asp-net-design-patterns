@@ -13,5 +13,9 @@ Design Patterns for ASP.NET Core
 	Connection Settings and Repositories
 	ProductController
 	
+3.Template Design Pattern
+	Abstract Template Class
+	Tag Helper
+	
 	
 	
