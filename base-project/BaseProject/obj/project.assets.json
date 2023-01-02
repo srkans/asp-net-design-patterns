@@ -10192,19 +10192,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Serkan\\.nuget\\packages\\": {}
+    "C:\\Users\\serka\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\BaseProject.csproj",
+      "projectUniqueName": "F:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\BaseProject.csproj",
       "projectName": "BaseProject",
-      "projectPath": "E:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\BaseProject.csproj",
-      "packagesPath": "C:\\Users\\Serkan\\.nuget\\packages\\",
-      "outputPath": "E:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\obj\\",
+      "projectPath": "F:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\BaseProject.csproj",
+      "packagesPath": "C:\\Users\\serka\\.nuget\\packages\\",
+      "outputPath": "F:\\projects\\asp-net-design-patterns\\base-project\\BaseProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Serkan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\serka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10212,9 +10212,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://www.github.com": {},
-        "https://www.myget.org/F/aspnet-contrib/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {

@@ -1,27 +1,70 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using webappStrategy.Models;
 
 namespace webappStrategy.Controllers
 {
+    [Authorize] //kullanıcı login olduysa calis
     public class SettingsController : Controller
     {
-        [Authorize] //kullanıcı login olduysa calis
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+
+        public SettingsController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+
         public IActionResult Index()
         {
-            Settings settings = new Settings();
 
-           if(User.Claims.Where(x=>x.Type == Settings.claimDbType).FirstOrDefault()!=null)
+
+            Settings settings = new();
+            if (User.Claims.Where(x => x.Type == Settings.claimDatabaseType).FirstOrDefault() != null)
             {
-                settings.DataBaseType = (EDataBaseType)int.Parse(User.Claims.First(x => x.Type == Settings.claimDbType).Value);
+                settings.DatabaseType = (EDatabaseType)int.Parse(User.Claims.First(x => x.Type == Settings.claimDatabaseType).Value);
             }
-           else
+            else
             {
-                settings.DataBaseType = settings.getDefaultDbType;
+                settings.DatabaseType = settings.GetDefaultDatabaseType;
             }
 
+            return View(settings);
+        }
 
-            return View();
+        [HttpPost]
+        public async Task<IActionResult> ChangeDatabase(int databaseType)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var newClaim = new Claim(Settings.claimDatabaseType, databaseType.ToString());
+
+            var claims = await _userManager.GetClaimsAsync(user);
+
+            var hasDatabaseTypeClaim = claims.FirstOrDefault(x=> x.Type== Settings.claimDatabaseType); //var ise mevcut claim'in kendisini atadim
+
+            if (hasDatabaseTypeClaim != null)
+            {
+                await _userManager.ReplaceClaimAsync(user, hasDatabaseTypeClaim, newClaim);
+            }
+            else
+            {
+                await _userManager.AddClaimAsync(user,newClaim);
+            }
+
+            await _signInManager.SignOutAsync(); //cookiyi güncellemek için signout signin yapılıyor
+
+            var authenticateResult = await HttpContext.AuthenticateAsync();
+
+            await _signInManager.SignInAsync(user, authenticateResult.Properties);
+
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

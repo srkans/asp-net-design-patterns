@@ -1,32 +1,63 @@
-using webappStrategy.Models;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
+using System.Configuration;
+using webappStrategy.Models;
 using webappStrategy.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 
-//builder.Services.AddHttpsRedirection(options =>
-//{
-//    options.RedirectStatusCode = (int)HttpStatusCode.TemporaryRedirect;
-//    options.HttpsPort = 5001;
-//});
 
-builder.Services.AddDbContext<AppIdentityDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
-});
 
-builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-{
-    options.User.RequireUniqueEmail= true;
-}).AddEntityFrameworkStores<AppIdentityDbContext>();
+var configuration = builder.Configuration; //.Net5 IConfiguration
+var services = builder.Services;
+
+
 
 //builder.Services.AddScoped<IProductRepository,ProductRepositoryFromSqlServer>(); sql server uzerinden calismak icin dinamik yontem degil
+
+services.AddHttpContextAccessor(); //service provider uzerinden httpcontext'e erisebilmek icin
+
+services.AddScoped<IProductRepository>(sp =>
+{
+
+    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
+
+    var claim = httpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == Settings.claimDatabaseType).FirstOrDefault();
+
+
+
+    var context = sp.GetRequiredService<AppIdentityDbContext>();
+    if (claim == null) return new ProductRepositoryFromSqlServer(context);
+
+
+    var databaseType = (EDatabaseType)int.Parse(claim.Value);
+
+
+
+    return databaseType switch
+    {
+        EDatabaseType.SqlServer => new ProductRepositoryFromSqlServer(context),
+        EDatabaseType.MongoDb => new ProductRepositoryFromMongoDb(configuration),
+        _ => throw new NotImplementedException()
+    };
+
+});
+
+services.AddDbContext<AppIdentityDbContext>(options =>
+{
+    options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+});
+
+services.AddIdentity<AppUser, IdentityRole>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<AppIdentityDbContext>();
+
+services.AddControllersWithViews();
 
 var app = builder.Build();
 using var scope = app.Services.CreateScope();
@@ -53,10 +84,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseHttpsRedirection();
-//}
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseStaticFiles();
 

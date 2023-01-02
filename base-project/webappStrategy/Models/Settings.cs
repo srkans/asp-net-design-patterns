@@ -2,10 +2,10 @@
 {
     public class Settings
     {
-        public static string claimDbType = "databasetype";
+        public static string claimDatabaseType = "databasetype";
 
-        public EDataBaseType DataBaseType;
+        public EDatabaseType DatabaseType;
 
-        public EDataBaseType getDefaultDbType => EDataBaseType.SqlServer; //sadece set olan bir prop 
+        public EDatabaseType GetDefaultDatabaseType => EDatabaseType.SqlServer;
     }
 }

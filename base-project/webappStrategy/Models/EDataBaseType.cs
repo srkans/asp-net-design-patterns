@@ -1,6 +1,6 @@
 ﻿namespace webappStrategy.Models
 {
-    public enum EDataBaseType
+    public enum EDatabaseType
     {
         SqlServer = 1,
         MongoDb = 2

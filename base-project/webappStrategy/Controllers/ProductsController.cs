@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using webappStrategy.Models;
-using webappStrategy.Models;
 using webappStrategy.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -27,9 +26,9 @@ namespace webappStrategy.Controllers
         private readonly IProductRepository _productRepository;
         private readonly UserManager<AppUser> _userManager;
 
-        public ProductsController(IProductRepository productRepository,UserManager<AppUser> userManager) //constructor uzerinden dependency injection
+        public ProductsController(IProductRepository productRepository, UserManager<AppUser> userManager)
         {
-           _productRepository = productRepository;
+            _productRepository = productRepository;
             _userManager = userManager;
         }
 
@@ -38,8 +37,11 @@ namespace webappStrategy.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-              var user = await _userManager.FindByNameAsync(User.Identity.Name);
-              return View(await _productRepository.GetAllByUserId(user.Id));
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            return View(await _productRepository.GetAllByUserId(user.Id));
         }
 
         // GET: Products/Details/5
@@ -50,7 +52,7 @@ namespace webappStrategy.Controllers
                 return NotFound();
             }
 
-            var product = await _productRepository.GetById(id);           
+            var product = await _productRepository.GetById(id);
             if (product == null)
             {
                 return NotFound();
@@ -72,15 +74,16 @@ namespace webappStrategy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Price,Stock,UserId,CreatedDate")] Product product)
         {
-            if (ModelState.IsValid)
-            {
+
+            
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 product.UserId = user.Id;
                 product.CreatedDate = DateTime.Now;
                 await _productRepository.Save(product);
+            
                 return RedirectToAction(nameof(Index));
-            }
-            return View(product);
+        
+       
         }
 
         // GET: Products/Edit/5
@@ -157,23 +160,14 @@ namespace webappStrategy.Controllers
         {
             var product = await _productRepository.GetById(id);
 
-            if (product == null) // **
-            {
-                return Problem("Entity set 'AppIdentityDbContext.Products'  is null.");
-            }
-           
-            if (product != null)
-            {
-                await _productRepository.Delete(product);
-            }
-            
-           
+
+            await _productRepository.Delete(product);
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(string id)
         {
-          return _productRepository.GetById(id) != null;
+            return _productRepository.GetById(id) != null;
         }
     }
 }
