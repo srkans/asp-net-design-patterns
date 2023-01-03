@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "oy+dDxBw8Mc0kAOibYdIcQBhuH4IBjbYYcq6EHEVgX8qoOZAHNgU5vB5o13Uxfp7UDFYVn2Zwg/HL0ujjqVLKQ==",
+  "dgSpecHash": "qqAJlPOZZbVqhf/97CiwzMktE/VjkAw03rgULXm962nNdoOoAZuds2byCSCZ1E9N2MNjUOZ1akBBZyzYqnW79w==",
   "success": true,
   "projectFilePath": "F:\\projects\\asp-net-design-patterns\\base-project\\WebAppCommand\\WebAppCommand.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serka\\.nuget\\packages\\closedxml\\0.97.0\\closedxml.0.97.0.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\dinktopdf\\1.0.8\\dinktopdf.1.0.8.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -183,6 +184,7 @@
     "C:\\Users\\serka\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\system.threading.tasks.dataflow\\6.0.0\\system.threading.tasks.dataflow.6.0.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\system.threading.thread\\4.0.0\\system.threading.thread.4.0.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",

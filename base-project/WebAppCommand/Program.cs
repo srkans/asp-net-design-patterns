@@ -2,6 +2,9 @@ using WebAppCommand.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using DinkToPdf.Contracts;
+using DinkToPdf;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,8 @@ builder.Services.AddControllersWithViews();
 //    options.RedirectStatusCode = (int)HttpStatusCode.TemporaryRedirect;
 //    options.HttpsPort = 5001;
 //});
+
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools())); //pdflib
 
 builder.Services.AddDbContext<AppIdentityDbContext>(options =>
 {

@@ -280,3 +280,4 @@ F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\SixLabors.Fonts.dll
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\System.IO.Packaging.dll
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\XLParser.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\DinkToPdf.dll
