@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO.Compression;
 using WebAppCommand.Commands;
 using WebAppCommand.Models;
 
@@ -43,6 +44,39 @@ namespace WebAppCommand.Controllers
             }
 
             return fileCreateInvoker.CreateFile();
+        }
+
+        public async Task<IActionResult> CreateFiles()
+        {
+            var products = await _context.Products.ToListAsync();
+            ExcelFile<Product> excelFile = new(products);
+            PdfFile<Product> pdfFile = new(products, HttpContext);
+
+            FileCreateInvoker fileCreateInvoker = new FileCreateInvoker();
+
+            fileCreateInvoker.AddCommand(new CreateExcelTableActionCommand<Product>(excelFile));
+            fileCreateInvoker.AddCommand(new CreatePdfTableActionCommand<Product>(pdfFile));
+
+            var fileResult = fileCreateInvoker.CreateFiles();
+
+            using (var zipMemoryStream = new MemoryStream())
+            {
+                using(var archive = new ZipArchive(zipMemoryStream,ZipArchiveMode.Create))
+                {
+                    foreach(var file in fileResult)
+                    {
+                        var fileContent = file as FileContentResult;
+
+                        var zipFile = archive.CreateEntry(fileContent.FileDownloadName);
+
+                        using (var zipEntryStream = zipFile.Open())
+                        {
+                          await  new MemoryStream(fileContent.FileContents).CopyToAsync(zipEntryStream);
+                        }
+                    }
+                }
+                return File(zipMemoryStream.ToArray(), "application/zip", "files.zip");
+            }
         }
     }
 }
