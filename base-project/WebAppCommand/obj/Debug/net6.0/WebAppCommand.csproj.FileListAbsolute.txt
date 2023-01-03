@@ -273,3 +273,10 @@ F:\projects\asp-net-design-patterns\base-project\WebAppCommand\obj\Debug\net6.0\
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\obj\Debug\net6.0\WebAppCommand.pdb
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\obj\Debug\net6.0\WebAppCommand.genruntimeconfig.cache
 F:\projects\asp-net-design-patterns\base-project\WebAppCommand\obj\Debug\net6.0\ref\WebAppCommand.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\ClosedXML.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\ExcelNumberFormat.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\Irony.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\SixLabors.Fonts.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\System.IO.Packaging.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppCommand\bin\Debug\net6.0\XLParser.dll
