@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="libwkhtmltox.dll"> <!--eklenen dll projeye dahil edildi-->
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory> <!--dll publish dosyasında da olsun-->  
+    </EmbeddedResource> 
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.97.0" />
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.12" />
