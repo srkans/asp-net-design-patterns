@@ -18,7 +18,8 @@ Design Patterns for ASP.NET Core
 	Tag Helper
 	
 4.Command Design Pattern
-	Excel File
-	PDF File
+	Excel File - closedXML
+	PDF File - dinktopdf
+	Zip file
 	
 	
