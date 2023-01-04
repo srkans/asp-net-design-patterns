@@ -10,7 +10,11 @@
             { 
                 return nextProcessHandler.Handle(o);
             }
-            return null;
+            else
+            {
+                return null;
+            }
+           
         }
 
         public IProcessHandler SetNext(IProcessHandler processHandler)

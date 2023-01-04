@@ -273,3 +273,10 @@ F:\projects\asp-net-design-patterns\base-project\WebAppChain\obj\Debug\net6.0\re
 F:\projects\asp-net-design-patterns\base-project\WebAppChain\obj\Debug\net6.0\WebAppChain.pdb
 F:\projects\asp-net-design-patterns\base-project\WebAppChain\obj\Debug\net6.0\WebAppChain.genruntimeconfig.cache
 F:\projects\asp-net-design-patterns\base-project\WebAppChain\obj\Debug\net6.0\ref\WebAppChain.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\ClosedXML.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\ExcelNumberFormat.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\Irony.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\SixLabors.Fonts.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\System.IO.Packaging.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppChain\bin\Debug\net6.0\XLParser.dll
