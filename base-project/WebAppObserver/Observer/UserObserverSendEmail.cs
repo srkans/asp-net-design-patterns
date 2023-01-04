@@ -19,7 +19,11 @@ namespace WebAppObserver.Observer
 
             var mailMessage = new MailMessage();
 
-            var smtpClient = new SmtpClient("smtp.gmail.com");
+            var smtpClient = new SmtpClient("smtp.gmail.com",587);
+
+            smtpClient.Credentials = new NetworkCredential("serkansacma@gmail.com", "sadasdasd");
+
+            smtpClient.EnableSsl = true;
 
             mailMessage.From = new MailAddress("serkansacma@gmail.com");
 
@@ -28,10 +32,6 @@ namespace WebAppObserver.Observer
             mailMessage.Subject = "Mail Deneme";
             mailMessage.Body = "<p>Html formatında güzel bir mesaj yazılabilir</p>";
             mailMessage.IsBodyHtml= true;
-
-            smtpClient.Port = 587;
-
-            smtpClient.Credentials = new NetworkCredential("serkansacma@gmail.com", "password");
 
             smtpClient.Send(mailMessage);
 

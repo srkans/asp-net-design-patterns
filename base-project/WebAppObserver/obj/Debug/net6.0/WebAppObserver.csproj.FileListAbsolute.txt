@@ -273,3 +273,6 @@ F:\projects\asp-net-design-patterns\base-project\WebAppObserver\obj\Debug\net6.0
 F:\projects\asp-net-design-patterns\base-project\WebAppObserver\obj\Debug\net6.0\WebAppObserver.pdb
 F:\projects\asp-net-design-patterns\base-project\WebAppObserver\obj\Debug\net6.0\WebAppObserver.genruntimeconfig.cache
 F:\projects\asp-net-design-patterns\base-project\WebAppObserver\obj\Debug\net6.0\ref\WebAppObserver.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppObserver\bin\Debug\net6.0\MediatR.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppObserver\bin\Debug\net6.0\MediatR.Contracts.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppObserver\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

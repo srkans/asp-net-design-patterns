@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebAppObserver.Observer;
+using MediatR;
+using WebAppObserver.Events;
 
 namespace WebAppObserver.Controllers
 {
@@ -10,13 +12,15 @@ namespace WebAppObserver.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserObserverSubject _userObserverSubject;
+        private readonly IMediator _mediator;
          
 
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, UserObserverSubject userObserverSubject) //DI Container
+        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, UserObserverSubject userObserverSubject, IMediator mediator) //DI Container
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _userObserverSubject = userObserverSubject;
+            _mediator = mediator;
         }
 
 
@@ -66,7 +70,10 @@ namespace WebAppObserver.Controllers
 
             if (identityResult.Succeeded)
             {
-                _userObserverSubject.NotifyObservers(appUser);
+            await  _mediator.Publish(new UserCreatedEvent() { AppUser = appUser}); //birden fazla eventhandler subscriber olduğu için
+                                    //tek eventhandler olsaydı send kullanılacaktı 
+
+              //  _userObserverSubject.NotifyObservers(appUser);
                 ViewBag.message = "Üyelik işlemi başarıyla gerçekleşti. ";
             }
             else

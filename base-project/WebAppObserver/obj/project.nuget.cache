@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "w80fc3fln2NWXOtrpRErJJzxDCdprVJGJH04g7j4OcDHpwMVaWtdDHvn7DpRdRaWcSCWayBGlNa3eDR3rZFdIw==",
+  "dgSpecHash": "D3PCGyExrMJegulFITS0I/9dqrID9HiIE8KqUtdmkwiuVOXXy3veL0+ISTUwu1xGuVLDspXTzDBTfs5efNGnbQ==",
   "success": true,
   "projectFilePath": "F:\\projects\\asp-net-design-patterns\\base-project\\WebAppObserver\\WebAppObserver.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
