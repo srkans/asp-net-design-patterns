@@ -1,6 +1,7 @@
 ﻿using WebAppObserver.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebAppObserver.Observer;
 
 namespace WebAppObserver.Controllers
 {
@@ -8,11 +9,14 @@ namespace WebAppObserver.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserObserverSubject _userObserverSubject;
+         
 
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
+        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, UserObserverSubject userObserverSubject) //DI Container
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _userObserverSubject = userObserverSubject;
         }
 
 
@@ -62,7 +66,7 @@ namespace WebAppObserver.Controllers
 
             if (identityResult.Succeeded)
             {
-                //subject kullanılacak
+                _userObserverSubject.NotifyObservers(appUser);
                 ViewBag.message = "Üyelik işlemi başarıyla gerçekleşti. ";
             }
             else
