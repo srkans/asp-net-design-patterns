@@ -33,7 +33,7 @@ identityDbContext.Database.Migrate(); //migrationlari otomatik uygula
 
 if (!userManager.Users.Any())
 {
-    userManager.CreateAsync(new AppUser() { UserName = "serkan", Email = "serkansacma@hotmail.com" }, "Password12*").Wait(); //sadece uygulama baþlarken çalýþýyor
+  //  userManager.CreateAsync(new AppUser() { UserName = "serkan", Email = "serkansacma@hotmail.com" }, "Password12*").Wait(); //sadece uygulama baþlarken çalýþýyor
     userManager.CreateAsync(new AppUser() { UserName = "betul", Email = "betulaltu@hotmail.com" }, "Password12*").Wait(); //bu yüzden senkron olarak çaðýrýldýlar.
     userManager.CreateAsync(new AppUser() { UserName = "user1", Email = "user1@hotmail.com" }, "Password12*").Wait();
     userManager.CreateAsync(new AppUser() { UserName = "user2", Email = "user2@hotmail.com" }, "Password12*").Wait();

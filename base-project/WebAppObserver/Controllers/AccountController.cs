@@ -47,5 +47,31 @@ namespace WebAppObserver.Controllers
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignUp(UserCreateViewModel userCreateViewModel)
+        {
+            var appUser = new AppUser { UserName = userCreateViewModel.UserName, Email=userCreateViewModel.Email };
+
+           var identityResult = await _userManager.CreateAsync(appUser,userCreateViewModel.Password); 
+
+            if (identityResult.Succeeded)
+            {
+                //subject kullanılacak
+                ViewBag.message = "Üyelik işlemi başarıyla gerçekleşti. ";
+            }
+            else
+            {
+                ViewBag.message = identityResult.Errors.ToList().First().Description;
+            }
+
+            return View();
+        }
+
     }
 }

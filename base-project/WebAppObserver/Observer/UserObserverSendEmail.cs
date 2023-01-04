@@ -4,7 +4,7 @@ using WebAppObserver.Models;
 
 namespace WebAppObserver.Observer
 {
-    public class UserObserverSendEmail : IUserObserver
+    public class UserObserverSendEmail : IUserObserver //concrete observer C
     {
         private readonly IServiceProvider _serviceProvider;
 
