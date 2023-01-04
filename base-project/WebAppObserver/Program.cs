@@ -2,6 +2,7 @@ using WebAppObserver.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using WebAppObserver.Observer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,18 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
     options.User.RequireUniqueEmail= true;
 }).AddEntityFrameworkStores<AppIdentityDbContext>();
+
+builder.Services.AddSingleton<UserObserverSubject>(sp =>
+{
+    UserObserverSubject userObserverSubject = new();
+
+    userObserverSubject.RegisterObserver(new UserObserverWriteToConsole(sp));
+    userObserverSubject.RegisterObserver(new UserObserverCreateDiscount(sp));
+    userObserverSubject.RegisterObserver(new UserObserverSendEmail(sp));
+
+    return userObserverSubject;
+
+});
 
 var app = builder.Build();
 using var scope = app.Services.CreateScope();

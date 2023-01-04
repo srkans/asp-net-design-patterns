@@ -11,7 +11,7 @@ namespace WebAppObserver.Observer
             _serviceProvider = serviceProvider;
         }
 
-        public void CreateUser(AppUser appUser) //async olarak tanımlarsan katkısı ne olur?
+        public void UserCreated(AppUser appUser) //async olarak tanımlarsan katkısı ne olur?
         {
             var logger = _serviceProvider.GetRequiredService<ILogger<UserObserverCreateDiscount>>();
 
