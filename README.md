@@ -22,4 +22,8 @@ Design Patterns for ASP.NET Core
 	PDF File - dinktopdf
 	Zip file
 	
+5.Observer Pattern
+	MediatR Library
+	Email
+	
 	
