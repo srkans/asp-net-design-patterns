@@ -40,6 +40,12 @@ if (!userManager.Users.Any())
     userManager.CreateAsync(new AppUser() { UserName = "user3", Email = "user3@hotmail.com" }, "Password12*").Wait();
 }
 
+Enumerable.Range(1, 20).ToList().ForEach(x =>
+{
+    identityDbContext.Products.Add(new Product { Name = $"Kalem {x}", Price = 100, Stock = 200 });
+});
+
+identityDbContext.SaveChanges();
 
 
 // Configure the HTTP request pipeline.

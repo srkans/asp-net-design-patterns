@@ -26,4 +26,9 @@ Design Patterns for ASP.NET Core
 	MediatR Library
 	Email
 	
+6.Chain of Responsibility
+
+7.Composite Design Pattern
+	
+	
 	

@@ -12,7 +12,7 @@ namespace WebAppChain.ChainOfResponsibility
 
             using (var zipStream = new MemoryStream())
             {
-                using (var archive = new ZipArchive(zipStream,ZipArchiveMode.Create))
+                using (var archive = new ZipArchive(zipStream,ZipArchiveMode.Create,true)) //zipstream gonderecek olsaydım ,true
                 {
                     var zipFile = archive.CreateEntry($"{typeof(T).Name}.xlsx");
 
@@ -22,7 +22,7 @@ namespace WebAppChain.ChainOfResponsibility
                     }
                 }
 
-                return base.Handle(zipStream);
+                return base.Handle(zipStream); //
             }
 
            
