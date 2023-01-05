@@ -29,6 +29,7 @@ namespace WebAppComposite.Controllers
             var menu = GetMenus(categories, new Category { Name = "TopCategory", Id = 0 }, new BookComposite(0, "TopMenu"));
 
             ViewBag.menu = menu;
+            ViewBag.selectlist = menu.Components.SelectMany(x => ((BookComposite)x).GetSelectListItems(""));
 
             return View();
         }
