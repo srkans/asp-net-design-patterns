@@ -8,10 +8,13 @@ namespace WebAppComposite.Composite
         public string Name { get; set; }
         private List<IComponent> _components;
 
+        public IReadOnlyCollection<IComponent> Components => _components;
+
         public BookComposite(int id, string name)
         {
             Id = id;
             Name = name;
+            _components= new List<IComponent>();
         }
 
 
@@ -38,7 +41,7 @@ namespace WebAppComposite.Composite
 
             if(!_components.Any()) return sb.ToString();
 
-            sb.Append("<ul class='list-group list-group-flush ml-3'>");
+            sb.Append("<ul class='list-group list-group-flush ms-3'>");
 
             foreach (var item in _components)
             {
