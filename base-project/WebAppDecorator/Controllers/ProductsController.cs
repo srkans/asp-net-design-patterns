@@ -22,6 +22,9 @@ namespace WebAppDecorator.Controllers
         //    _context = context;
         //}
 
+        
+        
+
         private readonly IProductRepository _productRepository; //dependency inversion
 
         public ProductsController(IProductRepository productRepository)
@@ -166,7 +169,7 @@ namespace WebAppDecorator.Controllers
 
         private bool ProductExists(int id)
         {
-            return _productRepository.GetById(id) != null;
+          return _productRepository.GetById(id) != null;
         }
     }
 }

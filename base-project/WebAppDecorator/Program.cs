@@ -2,6 +2,7 @@ using WebAppDecorator.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using WebAppDecorator.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail= true;
 }).AddEntityFrameworkStores<AppIdentityDbContext>();
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
+
 var app = builder.Build();
+
 using var scope = app.Services.CreateScope();
 var identityDbContext = scope.ServiceProvider.GetRequiredService<AppIdentityDbContext>();
 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
