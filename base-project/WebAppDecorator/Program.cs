@@ -26,6 +26,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail= true;
 }).AddEntityFrameworkStores<AppIdentityDbContext>();
 
+
+builder.Services.AddMemoryCache();//**
 builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
 
 var app = builder.Build();
