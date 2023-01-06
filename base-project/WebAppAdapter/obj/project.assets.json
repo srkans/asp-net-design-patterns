@@ -15,6 +15,22 @@
           }
         }
       },
+      "LazZiya.ImageResize/4.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "5.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/LazZiya.ImageResize.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/LazZiya.ImageResize.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MessagePack/2.1.152": {
         "type": "package",
         "dependencies": {
@@ -3625,6 +3641,22 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "LazZiya.ImageResize/4.1.1": {
+      "sha512": "JVFfe01pHMop6Fho4roQ8G8tJG+IHbLPte/fi2yO1dACDygAG/eQUc8WbmPUUdTI4tjtKQtvM9xnIr64zEwqzQ==",
+      "type": "package",
+      "path": "lazziya.imageresize/4.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.ico",
+        "icon.png",
+        "lazziya.imageresize.4.1.1.nupkg.sha512",
+        "lazziya.imageresize.nuspec",
+        "lib/netstandard2.0/LazZiya.ImageResize.dll",
+        "lib/netstandard2.0/LazZiya.ImageResize.xml",
+        "license.txt"
       ]
     },
     "MessagePack/2.1.152": {
@@ -10180,6 +10212,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "LazZiya.ImageResize >= 4.1.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.12",
       "Microsoft.EntityFrameworkCore >= 6.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.12",
@@ -10227,6 +10260,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "LazZiya.ImageResize": {
+            "target": "Package",
+            "version": "[4.1.1, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.12, )"

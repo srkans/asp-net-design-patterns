@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "psPm+KnYfM53S3z7OQVHCiPgbc4ok1AcD8PD1N/T4EQFG57wCforNOm/iwGG+JOKJQZBO9SsTIiMy2n0nhxaHA==",
+  "dgSpecHash": "aeM4k3QehdFUKUkMXBJ+37I1Xl5EXH44mN8/gdLVu+sDpZP2Jsf+0fOgyHD4WQSYiC18VZ+sUSMk4XycZlaB2w==",
   "success": true,
   "projectFilePath": "F:\\projects\\asp-net-design-patterns\\base-project\\WebAppAdapter\\WebAppAdapter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\serka\\.nuget\\packages\\lazziya.imageresize\\4.1.1\\lazziya.imageresize.4.1.1.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\serka\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

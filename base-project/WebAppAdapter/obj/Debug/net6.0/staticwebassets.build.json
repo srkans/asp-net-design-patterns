@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2vr/jD8qyZy62JyACAcAY5EYYc75yR0dfh2lb4h5qrQ=",
+  "Hash": "l3doZNKYej6F/UJP/m8SkuodvDsufvg22Mq21wBWX1E=",
   "Source": "WebAppAdapter",
   "BasePath": "_content/WebAppAdapter",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "F:\\projects\\asp-net-design-patterns\\base-project\\WebAppAdapter\\wwwroot\\watermarks\\wallhaven-627288.jpg",
+      "SourceId": "WebAppAdapter",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\projects\\asp-net-design-patterns\\base-project\\WebAppAdapter\\wwwroot\\",
+      "BasePath": "_content/WebAppAdapter",
+      "RelativePath": "watermarks/wallhaven-627288.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\watermarks\\wallhaven-627288.jpg"
     }
   ]
 }

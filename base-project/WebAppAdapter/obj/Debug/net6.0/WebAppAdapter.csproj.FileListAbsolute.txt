@@ -272,3 +272,4 @@ F:\projects\asp-net-design-patterns\base-project\WebAppAdapter\obj\Debug\net6.0\
 F:\projects\asp-net-design-patterns\base-project\WebAppAdapter\obj\Debug\net6.0\WebAppAdapter.pdb
 F:\projects\asp-net-design-patterns\base-project\WebAppAdapter\obj\Debug\net6.0\WebAppAdapter.genruntimeconfig.cache
 F:\projects\asp-net-design-patterns\base-project\WebAppAdapter\obj\Debug\net6.0\ref\WebAppAdapter.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppAdapter\bin\Debug\net6.0\LazZiya.ImageResize.dll
