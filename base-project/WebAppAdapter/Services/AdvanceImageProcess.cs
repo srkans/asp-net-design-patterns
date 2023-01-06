@@ -7,7 +7,7 @@ namespace WebAppAdapter.Services
     {
         public void AddWatermarkImage(Stream stream, string text, string filePath, Color color, Color outlineColor)
         {
-            using (var img = Image.FromFile(@"wwwroot\images\image-file.jpg"))
+            using (var img = Image.FromStream(stream))
             {
                 var tOps = new TextWatermarkOptions
                 {
