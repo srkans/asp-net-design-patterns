@@ -30,6 +30,8 @@ Design Patterns for ASP.NET Core
 
 7.Composite Design Pattern
 	
-8.Decorator Pattern	
+8.Decorator Design Pattern	
+
+9.Adapter Design Pattern
 	
 	
