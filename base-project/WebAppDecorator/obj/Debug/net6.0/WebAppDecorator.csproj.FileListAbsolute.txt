@@ -273,3 +273,5 @@ F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\obj\Debug\net6.
 F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\obj\Debug\net6.0\WebAppDecorator.pdb
 F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\obj\Debug\net6.0\WebAppDecorator.genruntimeconfig.cache
 F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\obj\Debug\net6.0\ref\WebAppDecorator.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+F:\projects\asp-net-design-patterns\base-project\WebAppDecorator\bin\Debug\net6.0\Scrutor.dll

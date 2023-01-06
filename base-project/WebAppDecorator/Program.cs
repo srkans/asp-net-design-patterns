@@ -30,22 +30,27 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 
 builder.Services.AddMemoryCache();//**
-//builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
-builder.Services.AddScoped<IProductRepository>(sp=>
-{
-    var context = sp.GetRequiredService<AppIdentityDbContext>();
-    var memoryCache = sp.GetRequiredService<IMemoryCache>();
-    var logService = sp.GetRequiredService<ILogger<ProductRepositoryLoggingDecorator>>();
 
-    var productRepository = new ProductRepository(context);
+builder.Services.AddScoped<IProductRepository, ProductRepository>()
+                                                                    .Decorate<IProductRepository, ProductRepositoryCacheDecorator>()
+                                                                    .Decorate<IProductRepository, ProductRepositoryLoggingDecorator>(); //Scrutor Library
 
-    var cacheDecorator = new ProductRepositoryCacheDecorator(productRepository, memoryCache);
+////builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
+//builder.Services.AddScoped<IProductRepository>(sp=>
+//{
+//    var context = sp.GetRequiredService<AppIdentityDbContext>();
+//    var memoryCache = sp.GetRequiredService<IMemoryCache>();
+//    var logService = sp.GetRequiredService<ILogger<ProductRepositoryLoggingDecorator>>();
 
-    var logDecorator = new ProductRepositoryLoggingDecorator(cacheDecorator, logService);
+//    var productRepository = new ProductRepository(context);
 
-    return logDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
-    //class'larda ya da repository'de degisiklik yapmadan cache uzerinden calismayi sagladik
-});
+//    var cacheDecorator = new ProductRepositoryCacheDecorator(productRepository, memoryCache);
+
+//    var logDecorator = new ProductRepositoryLoggingDecorator(cacheDecorator, logService);
+
+//    return logDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
+//    //class'larda ya da repository'de degisiklik yapmadan cache uzerinden calismayi sagladik
+//}); //without Scrutor
 
 
 var app = builder.Build();
