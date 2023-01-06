@@ -31,9 +31,11 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 builder.Services.AddMemoryCache();//**
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>()
-                                                                    .Decorate<IProductRepository, ProductRepositoryCacheDecorator>()
-                                                                    .Decorate<IProductRepository, ProductRepositoryLoggingDecorator>(); //Scrutor Library
+builder.Services.AddHttpContextAccessor();//*
+
+//builder.Services.AddScoped<IProductRepository, ProductRepository>()
+//                                                                    .Decorate<IProductRepository, ProductRepositoryCacheDecorator>()
+//                                                                    .Decorate<IProductRepository, ProductRepositoryLoggingDecorator>(); //Scrutor Library 2.yol
 
 ////builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
 //builder.Services.AddScoped<IProductRepository>(sp=>
@@ -50,8 +52,39 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>()
 
 //    return logDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
 //    //class'larda ya da repository'de degisiklik yapmadan cache uzerinden calismayi sagladik
-//}); //without Scrutor
+//}); //without Scrutor 1.yol
 
+
+//3.yol Runtime
+
+builder.Services.AddScoped<IProductRepository>(sp =>
+{
+    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
+
+    var context = sp.GetRequiredService<AppIdentityDbContext>();
+    var memoryCache = sp.GetRequiredService<IMemoryCache>();
+    var logService = sp.GetRequiredService<ILogger<ProductRepositoryLoggingDecorator>>();
+    var productRepository = new ProductRepository(context);
+
+    if(httpContextAccessor.HttpContext.User.Identity.Name == "serkan") //name yerine yetkiye bakýlabilir
+    {
+        var cacheDecorator = new ProductRepositoryCacheDecorator(productRepository, memoryCache);
+
+        return cacheDecorator;
+    }
+    else
+    {
+        var logDecorator = new ProductRepositoryLoggingDecorator(productRepository, logService);
+        return logDecorator;
+    }
+
+   
+
+    
+
+    
+   
+});
 
 var app = builder.Build();
 
