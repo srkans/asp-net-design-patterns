@@ -26,7 +26,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail= true;
 }).AddEntityFrameworkStores<AppIdentityDbContext>();
 
-builder.Services.AddScoped<IImageProcess, ImageProcess>();
+builder.Services.AddScoped<IImageProcess, AdvanceImageProcessAdapter>(); //burada adapter kullaniyoruz
+
+builder.Services.AddScoped<IAdvanceImageProcess, AdvanceImageProcess>();
 
 var app = builder.Build();
 using var scope = app.Services.CreateScope();
