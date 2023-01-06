@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using WebAppDecorator.Repositories;
+using WebAppDecorator.Repositories.Decorator;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +30,20 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 
 builder.Services.AddMemoryCache();//**
-builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
+//builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Problem fixed InvalidOperationException: Unable to resolve service for type
+builder.Services.AddScoped<IProductRepository>(sp=>
+{
+    var context = sp.GetRequiredService<AppIdentityDbContext>();
+    var memoryCache = sp.GetRequiredService<IMemoryCache>();
+
+    var productRepository = new ProductRepository(context);
+
+    var cacheDecorator = new ProductRepositoryCacheDecorator(productRepository, memoryCache);
+
+    return cacheDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
+    //class'larda ya da repository'de degisiklik yapmadan cache uzerinden calismayi sagladik
+});
+
 
 var app = builder.Build();
 
