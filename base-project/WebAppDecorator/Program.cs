@@ -35,12 +35,15 @@ builder.Services.AddScoped<IProductRepository>(sp=>
 {
     var context = sp.GetRequiredService<AppIdentityDbContext>();
     var memoryCache = sp.GetRequiredService<IMemoryCache>();
+    var logService = sp.GetRequiredService<ILogger<ProductRepositoryLoggingDecorator>>();
 
     var productRepository = new ProductRepository(context);
 
     var cacheDecorator = new ProductRepositoryCacheDecorator(productRepository, memoryCache);
 
-    return cacheDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
+    var logDecorator = new ProductRepositoryLoggingDecorator(cacheDecorator, logService);
+
+    return logDecorator; //product repository yerine prcachedecorator nesne ornegi return edildi
     //class'larda ya da repository'de degisiklik yapmadan cache uzerinden calismayi sagladik
 });
 
